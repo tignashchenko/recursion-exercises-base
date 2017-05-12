@@ -14,7 +14,7 @@ const getElementsByClassName = function(root, className) {
   const treeArray = flattenTreeToArray(root);
   const results = [];
   for(let i = 0; i < treeArray.length; i++) {
-    if(treeArray[i].className === className) {
+    if(treeArray[i].className && (treeArray[i].className).indexOf(className) !== -1) {
       results.push(treeArray[i]);
     }
   }
@@ -22,7 +22,10 @@ const getElementsByClassName = function(root, className) {
 };
 
 const getElementsByTagName = function(root, tagName) {
-  // Your code here
+  const treeArray = flattenTreeToArray(root);
+  return _.filter(treeArray, function(element) {
+    return element.tagName === tagName;
+  });
 };
 
 module.exports = {

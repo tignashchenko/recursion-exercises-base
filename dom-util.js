@@ -12,9 +12,10 @@ const visitAllNodes = function(node, callback) {
 const flattenTreeToArray = function(node) {
   const result = [];
 
-  if(node.childNodes) {
+ if(node.childNodes) {
+    const pushElementToArray = (node) => result.push(node);
     for(let i = 0, children = node.childNodes; i < children.length; i++) {
-      visitAllNodes(children[i], (node) => result.push(node));
+      visitAllNodes(children[i], pushElementToArray);
     }
   }
   result.push(node);

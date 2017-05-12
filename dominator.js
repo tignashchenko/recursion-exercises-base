@@ -5,7 +5,7 @@ const getElementById = function(root, id) {
   const treeArray = flattenTreeToArray(root);
   for(let i = 0; i < treeArray.length; i++) {
     if(treeArray[i].id === id) {
-      return treeArray[i].id;
+      return treeArray[i];
     }
   }
 };
